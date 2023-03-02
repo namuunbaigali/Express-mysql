@@ -1,0 +1,44 @@
+GET http://localhost:8000/
+
+###
+
+GET http://localhost:8000/id
+content-type: application/json
+
+{
+    "id":49
+}
+
+###
+POST http://localhost:8000/
+content-type: application/json
+
+{
+    "name":"technology",
+    "slug": "tech2",
+    "imageUrl":""
+}
+
+###
+
+DELETE http://localhost:8000/
+content-type: application/json
+
+{
+    "id":"44"
+}
+
+
+###
+
+PUT http://localhost:8000/
+content-type: application/json
+
+{
+    "id":"48",
+    "name":"ohoho",
+    "slug": "koko",
+    "imageUrl":""
+}
+
+# huselt bolgoniig dund ni ### zaaglah ystoi  baidg
