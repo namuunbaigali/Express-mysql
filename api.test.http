@@ -36,9 +36,53 @@ content-type: application/json
 
 {
     "id":"49",
-    "name":"ohoho",
-    "slug": "koko",
+    "name":"kkkkk",
+    "slug": "hhhhhh",
     "imageUrl":""
 }
+
+
+###
+
+# PRODUCT
+###
+GET http://localhost:8000/product/
+
+###
+
+GET http://localhost:8000/product/2
+
+
+
+###
+POST http://localhost:8000/product/
+content-type: application/json
+
+{
+    "name":"technossslogy3",
+    "slug": "techdsadas",
+    "imageUrl":"",
+    "productCount": 45
+}
+
+###
+
+PUT http://localhost:8000/product/
+content-type: application/json
+
+{
+    "id":"2",
+    "name":"ohoho",
+    "slug": "koko",
+    "imageUrl":"",
+    "productCount":34
+}
+###
+
+DELETE http://localhost:8000/product/2
+
+
+
+
 
 # huselt bolgoniig dund ni ### zaaglah ystoi  baidg

@@ -47,10 +47,8 @@ router.delete("/", async (req, res) => {
 router.put("/", async (req, res) => {
   const { id, name, slug, imageUrl } = req.body;
   try {
-    const [result] = await updateCategories(
-      `UPDATE category set name=?, slug=?,imageUrl=? where id=?`,
-      [name, slug, imageUrl, id]
-    );
+    const result = await updateCategories(name, slug, imageUrl, id);
+    res.json(result);
   } catch (err) {
     res.status(400).json("Update hiij cadsangui ");
   }
