@@ -5,19 +5,47 @@ export const getCategories = async () => {
   return result;
 };
 
-export const createCategory = async (name, slug, imageUrl) => {
+export const createCategory = async (
+  categoryId,
+  name,
+  slug,
+  productCount,
+  parent_id,
+  createdAt,
+  updated,
+  updateAt
+) => {
   const [result] = await pool.query(
-    `INSERT INTO category (name, slug, imageUrl) VALUES (?,?,?)`,
-    [name, slug, imageUrl]
+    `INSERT INTO category (categoryId,name, slug, productCount, parent_id,createdAt,updated,updateAt) VALUES (?,?,?,?,?,?,?,?)`,
+    [
+      categoryId,
+      name,
+      slug,
+      productCount,
+      parent_id,
+      createdAt,
+      updated,
+      updateAt,
+    ]
   );
   return result;
 };
 
-export const updateCategories = async (name, slug, imageUrl, id) => {
+export const updateCategories = async (
+  categoryId,
+  name,
+  slug,
+  productCount,
+  parent_id,
+  createdAt,
+  updated,
+  updateAT
+) => {
   const [result] = await pool.query(
-    `UPDATE category set name='${name}',slug='${slug}',imageUrl='${imageUrl}' where id=${id}`
+    `UPDATE category set  name='${name}',slug='${slug}',productCount='${productCount}'parent_id='${parent_id}',createdAt='${createdAt}',updated='${updated}',updateAT='${updateAT}' where id=${categoryId}`
   );
   return result;
+  s;
 };
 
 export const deleteCategories = async (id) => {

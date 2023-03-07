@@ -83,6 +83,45 @@ DELETE http://localhost:8000/product/2
 
 
 
+###
+GET http://localhost:8000/users
 
+###
+POST http://localhost:8000/users
+content-type: application/json
+
+{
+    "firstName":"dolasoo",
+    "lastName": "xurgaasa",
+    "birthDate" : "1996-07-17",
+    "email": "temuulen.m@pinessc.mn",
+    "phone": "966674123",
+    "password": "",
+    "imageUrl": ""
+}
+
+###
+PUT http://localhost:8000/users/5eABI0j5UOYBbhX8Nd2KS
+content-type: application/json
+
+{
+   
+    "firstName":"narhan",
+    "lastName": "sarhan",
+    "birthDate" : "1999-07-18",
+    "email": "temuulen.m@66.mn",
+    "phone": "96667477",
+    "password": "",
+    "imageUrl": "",
+    "id":"5eABI0j5UOYBbhX8Nd2KS"
+}
+###
+GET http://localhost:8000/users/exsJchCz5wSs2CNY8j6dX
+
+
+###
+DELETE http://localhost:8000/users/ImYsXZe3m4xZkxLYJbieC
+
+###
 
 # huselt bolgoniig dund ni ### zaaglah ystoi  baidg
