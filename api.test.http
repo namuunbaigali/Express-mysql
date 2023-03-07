@@ -1,22 +1,24 @@
+
+###CATEGORY###
 GET http://localhost:8000/categories/
 
 ###
 
-GET http://localhost:8000/categories/id
+GET http://localhost:8000/categories/
 content-type: application/json
 
 {
-    "id":49
+    "id":"ke9lkYzuq9JdHisP9vYIh"
 }
 
 ###
-POST http://localhost:8000/categories/
+POST http://localhost:8000/categories
 content-type: application/json
 
 {
-    "name":"technossslogy3",
-    "slug": "techdsadas",
-    "imageUrl":""
+    "name":"fgb",
+    "slug":"fgb",
+    "productCount":"12"
 }
 
 ###
@@ -44,7 +46,7 @@ content-type: application/json
 
 ###
 
-# PRODUCT
+# PRODUCT #
 ###
 GET http://localhost:8000/product/
 
@@ -82,8 +84,10 @@ content-type: application/json
 DELETE http://localhost:8000/product/2
 
 
-
 ###
+
+
+###USERS
 GET http://localhost:8000/users
 
 ###

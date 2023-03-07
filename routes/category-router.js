@@ -1,10 +1,10 @@
 import express from "express";
 import {
-  getCategories,
   createCategory,
-  deleteCategories,
-  sortCategories,
-  updateCategories,
+  deleteCategory,
+  getCategory,
+  getCategories,
+  updateCategory,
 } from "../services/category-services.js";
 
 const router = express.Router();
@@ -13,43 +13,40 @@ router.get("/", async (req, res) => {
   res.json(await getCategories());
 });
 
-router.get("/id", async (req, res) => {
-  const { id } = req.body;
-  try {
-    const [result] = await sortCategories(id);
-    res.json(result);
-  } catch (err) {
-    res.status(400).json(" sort hiij cadsangui");
-  }
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  res.json(await getCategory(id));
+});
+
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  res.json(await deleteCategory(id));
 });
 
 router.post("/", async (req, res) => {
-  const { name, slug, imageUrl } = req.body;
-  try {
-    const result = await createCategory(name, slug, imageUrl);
-    res.json(result);
-  } catch (err) {
-    res.status(400).json("Something went wrong");
-  }
+  const { name, slug, productCount } = req.body;
+  res.json(
+    await createCategory({
+      name,
+      slug,
+      productCount,
+    })
+  );
 });
 
-router.delete("/", async (req, res) => {
-  const { id } = req.body;
+router.put("/:categoryId", async (req, res) => {
+  const { categoryId } = req.params;
+  const { name, slug, productCount } = req.body;
   try {
-    const [result] = await deleteCategories(`DELETE FROM category where id=?`, [
-      id,
-    ]);
-  } catch (err) {
-    res.status(400).json(" Ustgaj cadsangui");
-  }
-});
-
-router.put("/", async (req, res) => {
-  const { id, name, slug, imageUrl } = req.body;
-  try {
-    const result = await updateCategories(name, slug, imageUrl, id);
+    const result = await updateCategory({
+      categoryId,
+      name,
+      slug,
+      productCount,
+    });
     res.json(result);
   } catch (err) {
+    console.log(err);
     res.status(400).json("Update hiij cadsangui ");
   }
 });
