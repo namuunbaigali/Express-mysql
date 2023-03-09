@@ -18,9 +18,9 @@ router.get("/:id", async (req, res) => {
   res.json(await getCategory(id));
 });
 
-router.delete("/:id", async (req, res) => {
-  const { id } = req.params;
-  res.json(await deleteCategory(id));
+router.delete("/:categoryId", async (req, res) => {
+  const { categoryId } = req.params;
+  res.json(await deleteCategory(categoryId));
 });
 
 router.post("/", async (req, res) => {
@@ -35,15 +35,11 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:categoryId", async (req, res) => {
-  const { categoryId } = req.params;
   const { name, slug, productCount } = req.body;
+  const { categoryId } = req.params;
+
   try {
-    const result = await updateCategory({
-      categoryId,
-      name,
-      slug,
-      productCount,
-    });
+    const result = await updateCategory(name, slug, productCount, categoryId);
     res.json(result);
   } catch (err) {
     console.log(err);

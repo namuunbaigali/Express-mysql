@@ -4,7 +4,7 @@ GET http://localhost:8000/categories/
 
 ###
 
-GET http://localhost:8000/categories/
+GET http://localhost:8000/categories/ifj-hINERlnhhiMXLZ0kC
 content-type: application/json
 
 {
@@ -16,31 +16,28 @@ POST http://localhost:8000/categories
 content-type: application/json
 
 {
-    "name":"fgb",
-    "slug":"fgb",
-    "productCount":"12"
+    
+    "name":"fgddrftghjfghb",
+    "slug":"fgdfghfghjmjb",
+    "productCount":1232
 }
 
 ###
 
-DELETE http://localhost:8000/categories/
-content-type: application/json
+DELETE http://localhost:8000/categories/null
 
-{
-    "id":"50"
-}
 
 
 ###
 
-PUT http://localhost:8000/categories/
+PUT http://localhost:8000/categories/ifj-hINERlnhhiMXLZ0kC
 content-type: application/json
 
 {
-    "id":"49",
-    "name":"kkkkk",
-    "slug": "hhhhhh",
-    "imageUrl":""
+
+    "name":"dfjh",
+    "slug":"esrdfg",
+    "productCount":""
 }
 
 
@@ -52,7 +49,7 @@ GET http://localhost:8000/product/
 
 ###
 
-GET http://localhost:8000/product/2
+GET http://localhost:8000/product/5wrgGy4ijBG-eBdHkpr8k
 
 
 
@@ -61,27 +58,30 @@ POST http://localhost:8000/product/
 content-type: application/json
 
 {
-    "name":"technossslogy3",
-    "slug": "techdsadas",
+    "name":"toto",
+    "slug":"dodo",
+    "description":"baba",
     "imageUrl":"",
-    "productCount": 45
+    "text":"hoho",
+    "price":120100
 }
 
 ###
 
-PUT http://localhost:8000/product/
+PUT http://localhost:8000/product/5wrgGy4ijBG-eBdHkpr8k
 content-type: application/json
 
 {
-    "id":"2",
-    "name":"ohoho",
-    "slug": "koko",
+    "name":"koko",
+    "slug":"kaka",
+    "description":"daadsa",
     "imageUrl":"",
-    "productCount":34
+    "text":"hoho",
+    "price":122100
 }
 ###
 
-DELETE http://localhost:8000/product/2
+DELETE http://localhost:8000/product/tFyzX9h_Axs6XkrdcFjBO
 
 
 ###

@@ -7,65 +7,45 @@ export const getCategories = async () => {
   return result;
 };
 
-export const getCategory = async (id) => {
-  const [result] = await pool.query("SELECT * FROM user where catgeoryId=?", [
-    id,
-  ]);
+export const getCategory = async (categoryId) => {
+  const [result] = await pool.query(
+    "SELECT * FROM category where categoryId=?",
+    categoryId
+  );
   const category = result.length ? result[0] : null;
   return category;
 };
 
-export const deleteCategory = async (id) => {
+export const deleteCategory = async (categoryId) => {
   try {
-    await pool.query("DELETE FROM user WHERE categoryId=?", [id]);
-    return id;
+    await pool.query("DELETE FROM category WHERE categoryId=?", [categoryId]);
+    return categoryId;
   } catch (e) {
     console.error(e);
     return null;
   }
 };
 
-export const createCategory = async (category) => {
+export const createCategory = async (cat) => {
   const id = nanoid();
-  try {
-    await pool.query(
-      `INSERT INTO user (categoryId, name, slug, productCount,createdAt) 
+  const [result] = await pool.query(
+    `INSERT INTO category (categoryId ,name, slug, productCount,createdAt) 
                 VALUES (?,?,?,?,?)`,
-      [
-        id,
-        category.name,
-        category.slug,
-        category.productCount,
-        category.parent_id,
-        new Date(),
-      ]
-    );
-    const result = await getCategory(id);
-    return result;
-  } catch (e) {
-    console.error(e);
-    return null;
-  }
+    [id, cat.name, cat.slug, cat.productCount, new Date()]
+  );
+  return result;
 };
 
-export const updateCategory = async (category) => {
-  const params = [
-    category.name,
-    category.slug,
-    category.productCount,
-    category.parent_id,
-    new Date(),
-    category.categoryId,
-  ];
+export const updateCategory = async (name, slug, productCount, categoryId) => {
+  const params = [name, slug, productCount];
   console.log(params);
   try {
     const res = await pool.query(
-      `update user set name=?, slug=?, productCount=?, parent_id=?, createdAt=? where categoryId=?`,
-      params
+      `update category set name=?, slug=?, productCount=?, createdAt=? where categoryId=?`,
+      [name, slug, productCount, new Date(), categoryId]
     );
     console.log(res);
-    const result = await getCategory(category.categoryId);
-    return result;
+    return res;
   } catch (e) {
     console.error(e);
     return null;
